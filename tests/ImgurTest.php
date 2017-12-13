@@ -75,7 +75,7 @@ class ImgurTest extends TestCase
      */
     public function it_should_get_size()
     {
-        $this->assertEquals($this->object->response->data->size, $this->object->size());
+        $this->assertEquals($this->object->response->data->size, $this->object->filesize());
     }
 
     /**
@@ -113,7 +113,7 @@ class ImgurTest extends TestCase
     {
         $this->assertEquals([
             'link' => $this->object->response->data->link,
-            'size' => $this->object->response->data->size,
+            'filesize' => $this->object->response->data->size,
             'type' => $this->object->response->data->type,
             'width' => $this->object->response->data->width,
             'height' => $this->object->response->data->height,
@@ -160,5 +160,18 @@ class ImgurTest extends TestCase
         ])->upload(self::$test_image);
 
         $this->assertEquals(200, $result->response->status);
+    }
+
+    /**
+     * @test
+     * @group imgur
+     */
+    public function it_should_get_specific_size()
+    {
+        $origin = "https://i.imgur.com/BO49tuZ.jpg";
+
+        $result = Imgur::size($origin, 's');
+
+        $this->assertEquals("https://i.imgur.com/BO49tuZs.jpg", $result);
     }
 }

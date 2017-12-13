@@ -3,6 +3,7 @@
 namespace Yish\Imgur;
 
 use GuzzleHttp\Client;
+use InvalidArgumentException;
 use Illuminate\Http\UploadedFile;
 
 class Upload implements Contract
@@ -12,6 +13,8 @@ class Upload implements Contract
     protected $headers = [];
 
     protected $params = [];
+
+    protected $size = ['s', 'b', 't', 'm', 'l', 'h'];
 
     public $response;
 
@@ -27,6 +30,13 @@ class Upload implements Contract
     {
         $this->client_id = $client_id;
         $this->client_secret = $client_secret;
+    }
+
+    public function setSize($size)
+    {
+        $this->size = $size;
+
+        return $this;
     }
 
     /**
@@ -159,7 +169,7 @@ class Upload implements Contract
      *
      * @return mixed
      */
-    public function size()
+    public function filesize()
     {
         return $this->response->data->size;
     }
@@ -203,7 +213,7 @@ class Upload implements Contract
     {
         return [
             'link' => $this->link(),
-            'size' => $this->size(),
+            'filesize' => $this->filesize(),
             'type' => $this->type(),
             'width' => $this->width(),
             'height' => $this->height(),
@@ -215,5 +225,24 @@ class Upload implements Contract
         $this->response = $response;
 
         return $this;
+    }
+
+    /**
+     * Imgur image size.
+     * @param $url
+     * @param $size
+     * @return string
+     */
+    public function size($url, $size)
+    {
+        if (! in_array($size, $this->size)) {
+            throw new InvalidArgumentException("Imgur does not support ' $size ' type." );
+        }
+
+        $delimiter = 'https://i.imgur.com/';
+
+        $image = explode('.', explode($delimiter, $url)[1]);
+
+        return $delimiter . $image[0] . $size . '.' . $image[1];
     }
 }
