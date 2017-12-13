@@ -1,4 +1,3 @@
-# package
 <p align="center"><img src="https://i.imgur.com/tjwClcs.png"></p>
 
 # Laravel Imgur
