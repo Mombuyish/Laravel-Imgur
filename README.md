@@ -65,15 +65,14 @@ $image->height(); //640
 
 // Or you can get usual data.
 $imag->usual();
-/**
-[
-  'link' => "https://i.imgur.com/XN9m1nW.jpg",
-  'filesize' => 43180,
-  'type' => "image/jpeg",
-  'width' => 480,
-  'height' => 640,
-]
-*/
+
+//[
+//  'link' => "https://i.imgur.com/XN9m1nW.jpg",
+//  'filesize' => 43180,
+//  'type' => "image/jpeg",
+//  'width' => 480,
+//  'height' => 640,
+//]
 ```
 
 Sometimes, you need get more image size, you can call `size` to get more thumbnails.
