@@ -1,7 +1,7 @@
 {
     "name": "yish/imgur",
     "description": "Imgur upload API with Laravel.",
-    "keywords": ["laravel", "patterns", "generator"],
+    "keywords": ["laravel", "upload", "imgur"],
     "homepage": "https://github.com/Mombuyish/Laravel-Imgur",
     "type": "library",
     "authors": [
