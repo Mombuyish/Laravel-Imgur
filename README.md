@@ -18,11 +18,19 @@ $ composer require yish/imgur
 ```
 
 If you use 5.5 or later, you don’t need to add provider into app.php, just use discovery autoloading.
+``` php
+Yish\Imgur\UploadServiceProvider::class,
+```
 
 ### Facade binding
 app.php
 ``` php
 'Imgur' => Yish\Imgur\Facades\Upload::class,
+```
+
+### Publish config
+``` bash
+$ php artisan vendor:publish
 ```
 
 ## Usage
