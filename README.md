@@ -78,7 +78,7 @@ $image->width(); //480
 $image->height(); //640
 
 // Or you can get usual data.
-$imag->usual();
+$image->usual();
 
 //[
 //  'link' => "https://i.imgur.com/XN9m1nW.jpg",
