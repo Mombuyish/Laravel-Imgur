@@ -1,18 +1,20 @@
-<p align="center"><img src="https://i.imgur.com/tjwClcs.png"></p>
+# Laravel Imgur
 
-<p align="center">
+<p>
 <a href="https://packagist.org/packages/yish/imgur"><img src="https://poser.pugx.org/yish/imgur/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/yish/imgur"><img src="https://poser.pugx.org/yish/imgur/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/yish/imgur"><img src="https://poser.pugx.org/yish/imgur/license.svg" alt="License"></a>
 <a href="https://packagist.org/packages/yish/imgur"><img src="https://poser.pugx.org/yish/imgur/v/unstable.svg" alt="License"></a>
 </p>
 
-# Laravel Imgur
-> Laravel-Imgur is super easy upload image to imgur package.
+Laravel-Imgur is super easy upload image to imgur package.
+
+## Requirement
+#### laravel `5.*`, `6.*`
 
 ## Installation
 
-### Via composer
+Install via composer
 ``` bash
 $ composer require yish/imgur
 ```
@@ -56,8 +58,8 @@ Imgur::setHeaders([
         ])->upload($image);
 ```
 
-## Quick Getter
-You can use pretty methods to get what you want informations.
+## Quick Starter
+You can use methods to get what you want informations.
 
 ``` php
 $image = Imgur::upload($file);
