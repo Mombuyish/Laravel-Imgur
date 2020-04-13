@@ -8,7 +8,7 @@ use Illuminate\Http\UploadedFile;
 
 class Upload implements Contract
 {
-    protected $url = 'https://api.imgur.com/3/image';
+    protected $url;
 
     protected $headers = [];
 
@@ -26,10 +26,11 @@ class Upload implements Contract
 
     private $image;
 
-    public function __construct($client_id, $client_secret)
+    public function __construct($client_id, $client_secret, $endpoint)
     {
         $this->client_id = $client_id;
         $this->client_secret = $client_secret;
+        $this->url = $endpoint;
     }
 
     public function setSize($size)

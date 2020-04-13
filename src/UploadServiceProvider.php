@@ -27,8 +27,9 @@ class UploadServiceProvider extends ServiceProvider
         $this->app->bind(Upload::class, function ($app) {
             $client_id = $app['config']->get('imgur.client_id');
             $client_secret = $app['config']->get('imgur.client_secret');
+            $endpoint = $app['config']->get('imgur.endpoint');
 
-            return new Upload($client_id, $client_secret);
+            return new Upload($client_id, $client_secret, $endpoint);
         });
     }
 }
